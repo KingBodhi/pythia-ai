@@ -34,14 +34,14 @@ const ecosystemProjects = [
     id: "vibe",
     name: "VIBE Token",
     description: "Ecosystem Rewards",
-    url: "https://vibetoken.xyz",
+    url: "https://vibe-token.vercel.app",
     color: "#f59e0b",
   },
   {
     id: "spectrum",
     name: "Spectrum Galactic",
     description: "Global Connectivity",
-    url: "https://spectrumgalactic.xyz",
+    url: "https://spectrum-galactic.vercel.app",
     color: "#00d4ff",
   },
 ];
