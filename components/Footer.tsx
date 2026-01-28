@@ -4,35 +4,30 @@ const ecosystemProjects = [
   {
     id: "alpha",
     name: "Alpha Protocol",
-    description: "Protocol Foundation",
     url: "https://alpha-protocol-web.vercel.app",
     color: "#dc2626",
   },
   {
     id: "omega",
     name: "Omega Wireless",
-    description: "Hardware Foundation",
     url: "https://omega-wireless.vercel.app",
     color: "#f97316",
   },
   {
     id: "vibertas",
     name: "Vibertas",
-    description: "Sovereign OS",
     url: "https://vibertas-os.vercel.app",
     color: "#eab308",
   },
   {
     id: "vibe",
     name: "VIBE Token",
-    description: "Ecosystem Rewards",
     url: "https://vibe-token.vercel.app",
     color: "#22c55e",
   },
   {
     id: "pythia",
     name: "Pythia AI",
-    description: "Emergent Intelligence",
     url: "#",
     color: "#3b82f6",
     current: true,
@@ -40,7 +35,6 @@ const ecosystemProjects = [
   {
     id: "spectrum",
     name: "Spectrum Galactic",
-    description: "Global Connectivity",
     url: "https://spectrum-galactic.vercel.app",
     color: "#8b5cf6",
   },
@@ -134,22 +128,22 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <a
+                  href="https://powerclubglobal.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-[var(--text-muted)] hover:text-[var(--pythia-primary)] transition-colors"
+                >
+                  PowerClub Global
+                </a>
+              </li>
+              <li>
+                <a
                   href="https://okb-ventures.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-sm text-[var(--text-muted)] hover:text-[var(--sovereign-gold)] transition-colors"
                 >
                   OKB Ventures
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://oklahomabillionaire.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-[var(--text-muted)] hover:text-[var(--pythia-primary)] transition-colors"
-                >
-                  Oklahoma Billionaire
                 </a>
               </li>
             </ul>
