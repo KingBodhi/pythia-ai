@@ -18,7 +18,7 @@ const ecosystemProjects = [
     shortName: "Alpha",
     description: "Protocol Foundation - Enabling P2P Connections",
     url: "https://alphaprotocol.network",
-    color: "#1e40af",
+    color: "#dc2626",
     layer: "Layer 0",
   },
   {
@@ -27,16 +27,16 @@ const ecosystemProjects = [
     shortName: "Omega",
     description: "Hardware Foundation - Physical Access Points",
     url: "https://omegawireless.xyz",
-    color: "#00aaff",
+    color: "#f97316",
     layer: "Layer 1",
   },
   {
-    id: "pcg",
-    name: "PCG Dashboard",
-    shortName: "PCG",
+    id: "vibertas",
+    name: "Vibertas",
+    shortName: "Viber",
     description: "Sovereign OS - Your Interface to the Mesh",
-    url: "https://pcg-dashboard.vercel.app",
-    color: "#10b981",
+    url: "https://vibertas-os.vercel.app",
+    color: "#eab308",
     layer: "OS Layer",
   },
   {
@@ -45,7 +45,7 @@ const ecosystemProjects = [
     shortName: "Pythia",
     description: "Emergent AI - Powered by the Ecosystem",
     url: "#",
-    color: "#8b5cf6",
+    color: "#3b82f6",
     layer: "Intelligence",
   },
   {
@@ -54,7 +54,7 @@ const ecosystemProjects = [
     shortName: "VIBE",
     description: "Ecosystem Rewards - Value for Contributors",
     url: "https://vibe-token.vercel.app",
-    color: "#f59e0b",
+    color: "#22c55e",
     layer: "Economics",
   },
   {
@@ -63,7 +63,7 @@ const ecosystemProjects = [
     shortName: "Spectrum",
     description: "Global Reach - Satellite Coverage Extension",
     url: "https://spectrum-galactic.vercel.app",
-    color: "#00d4ff",
+    color: "#8b5cf6",
     layer: "Connectivity",
   },
 ];
@@ -75,7 +75,8 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[var(--dark-bg)]/95 backdrop-blur-sm border-b border-[var(--dark-border)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        {/* Desktop Layout */}
+        <div className="hidden md:flex items-center justify-between h-16">
           {/* Ecosystem Dropdown + Logo */}
           <div className="flex items-center gap-4">
             {/* Ecosystem Dropdown */}
@@ -87,9 +88,9 @@ export default function Header() {
                 <div className="flex items-center gap-2">
                   <div
                     className="w-2 h-2 rounded-full"
-                    style={{ background: "#8b5cf6" }}
+                    style={{ background: "#3b82f6" }}
                   />
-                  <span className="text-sm font-medium text-[var(--text-primary)] hidden sm:inline">
+                  <span className="text-sm font-medium text-[var(--text-primary)]">
                     Pythia
                   </span>
                 </div>
@@ -202,7 +203,7 @@ export default function Header() {
                   <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
                 </svg>
               </div>
-              <div className="hidden sm:block">
+              <div>
                 <span className="text-lg font-bold text-gradient-pythia">PYTHIA AI</span>
                 <span className="text-xs block text-[var(--text-muted)]">Emergent Intelligence</span>
               </div>
@@ -210,7 +211,7 @@ export default function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -223,23 +224,107 @@ export default function Header() {
           </nav>
 
           {/* CTA Button */}
-          <div className="hidden md:block">
+          <div>
             <Link href="/invest" className="btn-primary text-sm">
               Partner With Us
             </Link>
           </div>
+        </div>
 
-          {/* Mobile menu button */}
+        {/* Mobile Layout: SS (Left) | Logo (Center) | Menu (Right) */}
+        <div className="flex md:hidden items-center justify-between h-16 relative">
+          {/* SS Dropdown - Left */}
+          <div className="relative z-10">
+            <button
+              onClick={() => setEcosystemOpen(!ecosystemOpen)}
+              className="flex items-center gap-1.5 px-2.5 py-2 rounded-lg bg-[var(--bg-surface)] border border-[var(--border-default)] hover:border-[var(--sovereign-gold)] transition-all"
+            >
+              <div
+                className="w-2 h-2 rounded-full"
+                style={{ background: "#3b82f6" }}
+              />
+              <svg
+                className={`w-3.5 h-3.5 text-[var(--text-muted)] transition-transform ${ecosystemOpen ? "rotate-180" : ""}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {ecosystemOpen && (
+              <>
+                <div className="fixed inset-0 z-40" onClick={() => setEcosystemOpen(false)} />
+                <div className="absolute top-full left-0 mt-2 w-72 bg-[var(--bg-card)] border border-[var(--border-default)] rounded-xl shadow-xl z-50 overflow-hidden">
+                  <div className="p-3 border-b border-[var(--border-default)]">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-md bg-gradient-to-br from-[var(--sovereign-gold)] to-[var(--sovereign-gold-dark)] flex items-center justify-center">
+                        <span className="text-xs font-bold text-[var(--bg-primary)]">SS</span>
+                      </div>
+                      <span className="text-sm font-semibold text-gradient-sovereign">Sovereign Stack</span>
+                    </div>
+                  </div>
+                  <div className="p-2 max-h-80 overflow-y-auto">
+                    {ecosystemProjects.map((project) => (
+                      <a
+                        key={project.id}
+                        href={project.url}
+                        target={project.id === "pythia" ? "_self" : "_blank"}
+                        rel="noopener noreferrer"
+                        onClick={() => setEcosystemOpen(false)}
+                        className={`flex items-center gap-3 p-2.5 rounded-lg transition-all ${project.id === "pythia" ? "bg-[var(--bg-surface)]" : "hover:bg-[var(--bg-surface)]"}`}
+                      >
+                        <div
+                          className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
+                          style={{ background: `${project.color}20` }}
+                        >
+                          <div className="w-2.5 h-2.5 rounded-full" style={{ background: project.color }} />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-medium text-[var(--text-primary)]">{project.shortName}</span>
+                            {project.id === "pythia" && (
+                              <span className="px-1.5 py-0.5 rounded text-[9px] bg-[var(--status-success-bg)] text-[var(--status-success)]">Current</span>
+                            )}
+                          </div>
+                          <span className="text-[10px] font-medium" style={{ color: project.color }}>{project.layer}</span>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                  <div className="p-2 border-t border-[var(--border-default)] bg-[var(--bg-surface)]">
+                    <a href="https://okb-ventures.vercel.app" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-1.5 text-xs text-[var(--text-muted)] hover:text-[var(--sovereign-gold)] transition-colors py-1">
+                      <span>Backed by OKB Ventures</span>
+                    </a>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
+          {/* Logo - Center */}
+          <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity absolute left-1/2 -translate-x-1/2">
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[var(--pythia-primary)] to-[var(--pythia-dark)] flex items-center justify-center">
+              <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+              </svg>
+            </div>
+            <span className="text-sm font-bold text-gradient-pythia">Pythia</span>
+          </Link>
+
+          {/* Menu Button - Right */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-[var(--pythia-primary)]"
+            className="p-2 text-[var(--pythia-primary)] z-10"
           >
             {mobileMenuOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             )}
